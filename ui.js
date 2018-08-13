@@ -1,23 +1,31 @@
 $(document).ready(function(){
 
-activateTriggers();
+  activateTriggers();
 
-// Upload file and make the magic happen
-$("#upload-button").click(function() {
-  let reader = new FileReader();
-  reader.onload = function(e) {
-    var textArr = reader.result.split(/\r?\n/).filter(function(item) {
-      return item !== "";
-    });
-    textArr = textArr.map(makeChunk);
-    for (let i = 0; i < textArr.length; i++) {
-      let htmlText = $.parseHTML(textArr[i]);
-      $(".main-container").append(htmlText);
+  // Upload file and make the magic happen
+  $("#upload-button").click(function() {
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      var textArr = reader.result.split(/\r?\n/).filter(function(item) {
+        return item !== "";
+      });
+      textArr = textArr.map(makeChunk);
+      for (let i = 0; i < textArr.length; i++) {
+        let htmlText = $.parseHTML(textArr[i]);
+        $(".main-container").append(htmlText);
+      }
+      activateTriggers();
     }
-    activateTriggers();
-  }
-  reader.readAsText($(this).prev().get(0).files[0]);
-});
+    reader.readAsText($(this).prev().get(0).files[0]);
+  });
+
+  // Test upload if the user does not supply one
+  $("#test-button").click(function() {
+    let testPath = "test.txt";
+    $.get(testPath, function(data) {
+      console.log(data);
+    });
+  });
 
 });
 
@@ -89,4 +97,15 @@ jQuery.each(jQuery('textarea[data-autoresize]'), function() {
     };
     jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
 });
+}
+
+function loadFile(filePath) {
+  var result = null;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", filePath, false);
+  xmlhttp.send();
+  if (xmlhttp.status==200) {
+    result = xmlhttp.responseText;
+  }
+  return result;
 }
