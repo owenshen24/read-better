@@ -1,6 +1,6 @@
 :root {
   --minimize-button-radius: 20px;
-  --page-width: 600px;
+  --page-width: 750px;
 }
 
 html {
@@ -22,7 +22,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 9fr 1fr;
+  grid-template-columns: 8fr 2fr;
 }
 
 .minimize-button:hover {
@@ -60,4 +60,24 @@ body {
   width: calc(0.8 * var(--page-width));
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1.2em; /* currently ems cause chrome bug misinterpreting rems on body element */
+}
+
+input[type="button"],
+input[type="file"] {
+  height: 38px;
+  padding: 0 10px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
 }
