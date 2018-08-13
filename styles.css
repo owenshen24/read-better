@@ -1,6 +1,6 @@
 :root {
   --minimize-button-radius: 20px;
-  --page-width: 750px;
+  --page-width: 600px;
 }
 
 html {
@@ -22,7 +22,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 9fr 1fr;
 }
 
 .minimize-button:hover {
