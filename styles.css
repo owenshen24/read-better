@@ -1,0 +1,63 @@
+:root {
+  --minimize-button-radius: 20px;
+  --page-width: 600px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+.main-container {
+  width: var(--page-width);
+  margin: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+
+.minimize-button:hover {
+  opacity: 1.0;
+}
+
+.minimize-button, .preview-button {
+  border-radius: 50%;
+  background-color: rgb(44,108,128);
+  cursor: pointer;
+  font-weight:bold;
+  font-family:courier;
+  color:white;
+  font-size: var(--minimize-button-radius);
+  text-align: center;
+  border: none;
+}
+
+.minimize-button {
+  opacity: 0.5;
+}
+
+.button-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.summary-input {
+  resize: none;
+  width: calc(0.8 * var(--page-width));
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em; /* currently ems cause chrome bug misinterpreting rems on body element */
+}
