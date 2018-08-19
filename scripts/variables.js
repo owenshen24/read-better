@@ -40,7 +40,7 @@ var block2 =`
 <div class="icon-button preview"
 data-balloon-length="large"
 data-balloon=""
-data-balloon-pos="right">
+data-balloon-pos="bottom">
   <i class="fas fa-search"></i>
 </div>
 </div>
